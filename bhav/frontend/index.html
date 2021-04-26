@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>CodePen - VUE Export to CSV </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body>
+        <div id="app">
+            <input id="search" v-model="message" v-on:input="inputSearch" />
+            <button @click="csvExport(csvData)">Export to CSV </button>
+            <table>
+                <tr>
+                    <th v-for="th in ['SC_CODE', 'SC_NAME', 'OPEN', 'HIGH', 'LOW', 'CLOSE' ]">{{th}}</th>
+                </tr>
+                <tr v-for="datum in data">
+                    <td>{{datum.SC_CODE}}</td>
+                    <td>{{datum.SC_NAME}}</td>
+                    <td>{{datum.OPEN}}</td>
+                    <td>{{datum.HIGH}}</td>
+                    <td>{{datum.LOW}}</td>
+                    <td>{{datum.CLOSE}}</td>
+                </tr>
+            </table>
+        </div>
+        <!-- partial -->
+        <script src='https://unpkg.com/vue/dist/vue.js'></script>
+        <script src="./script.js"></script>
+
+    </body>
+
+</html>
